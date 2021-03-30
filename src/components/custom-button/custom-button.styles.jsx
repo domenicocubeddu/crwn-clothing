@@ -24,6 +24,21 @@ const invertedButtonStyles = css`
   }
 `;
 
+const collectionItemStyle = css`
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    border: none;
+    opacity: 0.85;
+    display: flex;
+  }
+`
+
 const googleSignInStyles = css`
   background-color: #4285f4;
   color: white;
@@ -37,7 +52,9 @@ const googleSignInStyles = css`
 const getButtonStyles = props => {
   if (props.isGoogleSignIn) {
     return googleSignInStyles;
-  } 
+  } else if (props.collectionItem) {
+    return collectionItemStyle;
+  }
 
   return props.inverted ? invertedButtonStyles : buttonStyles;
 }
